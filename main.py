@@ -10,14 +10,6 @@ from werkzeug.utils import secure_filename
 from datetime import datetime
 
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///reviews.db'
-db = SQLAlchemy(app)
-BASEDIR=Path(__file__).parent
-UPLOAD_FOLDER = BASEDIR/'static'/'images'
-app.config['SECRET_KEY']='SECRET_KEY'
-
-
 class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), nullable=False)
